@@ -1,2 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hfhuaizhi.asslib" />
+    package="com.hfhuaizhi.asslib">
+
+    <application>
+        <service
+            android:name=".service.AccessibilitySampleService"
+            android:exported="true"
+            android:label="@string/ass_tips"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:process=":AssDemoService">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
+    </application>
+</manifest>
